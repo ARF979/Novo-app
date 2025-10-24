@@ -1,0 +1,54 @@
+{
+  "name": "doc-generator-app",
+  "version": "1.0.0",
+  "description": "Desktop Document Generator",
+  "main": "public/electron.js",
+  "homepage": ".",
+  "author": "Your Name",
+  "scripts": {
+    "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+    "react-start": "react-scripts start",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "build": "react-scripts build",
+    "package": "electron-builder"
+  },
+  "build": {
+    "appId": "com.docgenerator.app",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  },
+  "dependencies": {
+    "docxtemplater": "^3.47.2",
+    "libreoffice-convert": "^1.5.1",
+    "pizzip": "^3.1.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^31.2.1",
+    "electron-builder": "^24.13.3",
+    "wait-on": "^7.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
